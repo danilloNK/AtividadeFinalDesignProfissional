@@ -1,0 +1,645 @@
+Delivered-To: danilloguiff@gmail.com
+Received: by 2002:a05:6f02:51e:b0:10f:b155:ce57 with SMTP id 30csp1491631rch;
+        Sun, 23 Nov 2025 12:40:42 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEsh5Ddr/QXUf6PB83o99hKj/pgqOb985EplBG2Bgt0NiFAXoZzjbBeFgxHRu6MgdQ4MROj
+X-Received: by 2002:ac8:7e88:0:b0:4ee:1301:ebac with SMTP id d75a77b69052e-4ee58af1024mr142916031cf.57.1763930442507;
+        Sun, 23 Nov 2025 12:40:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1763930442; cv=none;
+        d=google.com; s=arc-20240605;
+        b=S9X/+gvqGYe/fm5Zaca1Pg02/C3b7a9YoP9q2Ed0Ax3yxKeItxe4TE8Aan8kubPMIs
+         Lbe8Q+5wLVZb4Rh2J73ffpjVIXR+LqBsB+izq00+ts7QmpNUSj9lD65FBCgoKOt5tmjK
+         DNO6T5Ngk9CGlaVyzWguwGR3Jv9F8WUrRf73KD2PMWSgDshB8nylSNz8cj9VFqfMwqpZ
+         mCCveG6cPb7hc311YBpRm2VhgkjhRhNkVLfZLUhUVfb8+4Usk7I54QM17jXoIhv1TcO7
+         1h2jmY6deU6Aj54xDw2JFxg0j3FFHDURC++i9zt+hARz3A6gVD68Ac3sOm0XkHFLYfCu
+         UITQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:date:message-id:content-transfer-encoding:mime-version
+         :subject:to:from:dkim-signature:dkim-signature;
+        bh=0EFP3jKfBm31agitCPKH9YCIgD22TtnqU4AsnzTtRfQ=;
+        fh=QSEZ1pUg1SpqgblBupmdXUAwLsmF0wG4q+cbgvMN46A=;
+        b=FIz4UDUN6JGkDFVNYI/2EHxsBC4Q436gO/3pn3vzvKHKDxYbffn74NZC8kbiIBRPFk
+         qc9wQaiF+/xxKO9D8w89PVAbQQabtF3CvaJ1w6+6G2RLihx5/8ryMi9aIB8K0ZmKJNFL
+         IJP66h72lHmXVz3yZ89pIW8pX3iPw8EAw8DFwjWjeQWLYTWfACNvRuKRw4MX5onngEaU
+         61YH9lr2cQJh3v2TtsyOju+mzzWB6mWGMHsuRpd9+2s6XcqxhFxFQCprO6yMLs2ZWqIp
+         IAskKu8aHZs4C0hrEp5KlwWIVEEUzesOEjY60sJFID1k1kK52LQ/82h+nFMylpRipVII
+         oizg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@empregare.com header.s=xyxmuaqhnlsfouuzvm54mw2j5zexiiwc header.b=4y8MjsKW;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b="Q+Xa9/S3";
+       spf=pass (google.com: domain of 0100019ab2728944-5cb63ba0-e7b2-4f27-8cad-f70fbb548f12-000000@mail-from.empregare.com designates 54.240.11.63 as permitted sender) smtp.mailfrom=0100019ab2728944-5cb63ba0-e7b2-4f27-8cad-f70fbb548f12-000000@mail-from.empregare.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=empregare.com
+Return-Path: <0100019ab2728944-5cb63ba0-e7b2-4f27-8cad-f70fbb548f12-000000@mail-from.empregare.com>
+Received: from a11-63.smtp-out.amazonses.com (a11-63.smtp-out.amazonses.com. [54.240.11.63])
+        by mx.google.com with ESMTPS id d75a77b69052e-4ee48eca378si35984821cf.1178.2025.11.23.12.40.42
+        for <danilloguiff@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 23 Nov 2025 12:40:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of 0100019ab2728944-5cb63ba0-e7b2-4f27-8cad-f70fbb548f12-000000@mail-from.empregare.com designates 54.240.11.63 as permitted sender) client-ip=54.240.11.63;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@empregare.com header.s=xyxmuaqhnlsfouuzvm54mw2j5zexiiwc header.b=4y8MjsKW;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b="Q+Xa9/S3";
+       spf=pass (google.com: domain of 0100019ab2728944-5cb63ba0-e7b2-4f27-8cad-f70fbb548f12-000000@mail-from.empregare.com designates 54.240.11.63 as permitted sender) smtp.mailfrom=0100019ab2728944-5cb63ba0-e7b2-4f27-8cad-f70fbb548f12-000000@mail-from.empregare.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=empregare.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=xyxmuaqhnlsfouuzvm54mw2j5zexiiwc; d=empregare.com; t=1763930442;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date;
+	bh=V358oR6cRljZaKv0uffHL9y+GlDHr0t6lsoYs0/kE40=;
+	b=4y8MjsKWQJrS1lBVOhOdwQRf+fApAqri3OT32D2CKj+b0D/i4M6tUuOF+caeVSSC
+	RNRrZDjmoYFOl15E7vLCByfwihLcKzo07OHpo/7FKLEiAfOarhzXxVIsLDSHQqiEzE5
+	45f+fZUA2QcpU4+m2gJH2P/4R09FuI/OivrBuE+M+ByysCOF1LBDSgViAC3mQEjjm1i
+	E6ApeN463PY7wqMFdzd1IZFaaThpn0nVwouZEg6J3ZyBBHznTUpf9Wm+QcRhXgQJgfx
+	9rADhrm2OMEp+U+zNLli28FpG64hxcrmeZqFVj2XIqyE8yRpDvZk/TmgBWDT7WJ3snj
+	RJYIUqKuRg==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1763930442;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=V358oR6cRljZaKv0uffHL9y+GlDHr0t6lsoYs0/kE40=;
+	b=Q+Xa9/S3NsNRSvzeg0oTk4Mqge5kcwQYcpwoxsYWTldyZkFOalIH8Uz75pKrQ8te
+	CCgWWh18F4sgBCySBUoaRIYTFdi/0FMP8dlTVzCi5v1zdI6WxCEXPT2h10mtWlk/7JN
+	gc5G67hN2dz+uJu5qJB9C6xfqSXZAzwVlcBozn3k=
+From: =?utf-8?B?R3J1cG8gTlRTRUM=?= <aviso@empregare.com>
+To: danilloguiff@gmail.com
+Subject: =?UTF-8?Q?Candidatura_confirmada_na_vaga_Estagi=C3=A1rio_TI_-_DF?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <0100019ab2728944-5cb63ba0-e7b2-4f27-8cad-f70fbb548f12-000000@email.amazonses.com>
+Date: Sun, 23 Nov 2025 20:40:42 +0000
+Feedback-ID: ::1.us-east-1.bM0GGcR6O7Wq95JvPBQsvziQDHEI+Q/nF9wc8kedcHc=:AmazonSES
+X-SES-Outgoing: 2025.11.23-54.240.11.63
+
+<!doctype html>
+<html lang=3D"und" dir=3D"auto" xmlns=3D"http://www.w3.org/1999/xhtml" xmln=
+s:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:=
+office:office">
+  <head>
+    <title>Candidatura Confirmada</title>
+    <!--[if !mso]><!-->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <!--<![endif]-->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1">
+    <style type=3D"text/css">
+      #outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }
+    </style>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+   =20
+   =20
+    <style type=3D"text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+      }
+    </style>
+    <style media=3D"screen and (min-width:480px)">
+      .moz-text-html .mj-column-per-100 { width:100% !important; max-width:=
+ 100%; }
+    </style>
+   =20
+   =20
+ =20
+   =20
+    <style type=3D"text/css">
+
+    @media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }
+ =20
+    </style>
+   =20
+   =20
+  </head>
+  <body style=3D"word-spacing:normal;background-color:#E5E5E5;">
+   =20
+   =20
+      <div
+         style=3D"background-color:#E5E5E5;" lang=3D"und" dir=3D"auto"
+      >
+       =20
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font=
+-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFF=
+F;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:20px 0;text-a=
+lign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:600px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+word-break:break-word;"
+                >
+                 =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px;"
+      >
+        <tbody>
+          <tr>
+            <td  style=3D"width:145px;">
+             =20
+      <img
+         alt=3D"Logo Empregare" src=3D"https://www.empregare.com/assetsV2/c=
+ommon/images/global/logo.png" style=3D"border:0;display:block;outline:none;=
+text-decoration:none;height:auto;width:100%;font-size:13px;" width=3D"145" =
+height=3D"auto"
+      />
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" st=
+yle=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"li=
+ne-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFF=
+F;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:20px 0;text-a=
+lign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:600px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, Arial;font-size:28px;font-weight:6=
+00;line-height:1;text-align:left;color:#000000;"
+      >Candidatura Confirmada</div>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" st=
+yle=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"li=
+ne-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFF=
+F;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:0 0;text-alig=
+n:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:600px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   align=3D"center" style=3D"font-size:0px;padding:0 20px;w=
+ord-break:break-word;"
+                >
+                 =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:separate;line-height:100%;"
+      >
+        <tbody>
+          <tr>
+            <td
+               align=3D"center" bgcolor=3D"#FDF6DE" role=3D"presentation" s=
+tyle=3D"border:1px solid #CE8112;border-radius:3px;cursor:auto;mso-padding-=
+alt:10px 25px;background:#FDF6DE;" valign=3D"middle"
+            >
+              <p
+                 style=3D"display:inline-block;background:#FDF6DE;color:#54=
+5454;font-family:Helvetica, Arial;font-size:11px;font-weight:normal;line-he=
+ight:1.5;margin:0;text-decoration:none;text-transform:none;padding:10px 25p=
+x;mso-padding-alt:0px;border-radius:3px;"
+              >
+                Esta mensagem foi enviada pelo software de recrutamento e s=
+ele=C3=A7=C3=A3o da EMPREGARE de forma autom=C3=A1tica. Por favor, n=C3=A3o=
+ responda este e-mail.
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" st=
+yle=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"li=
+ne-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFF=
+F;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:20px 0;text-a=
+lign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:600px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, Arial;font-size:19px;font-weight:6=
+00;line-height:1;text-align:left;color:#000000;"
+      >Ol=C3=A1, Danillo Guilherme Tom=C3=A9 de Jesus</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, Arial;font-size:13px;line-height:1=
+.5;text-align:left;color:#000000;"
+      >Parab=C3=A9ns! Voc=C3=AA se inscreveu para participar do processo se=
+letivo da vaga <strong>Estagi=C3=A1rio TI - DF</strong> da empresa <strong>=
+Grupo NTSEC</strong>.</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, Arial;font-size:13px;line-height:1=
+.5;text-align:left;color:#000000;"
+      >A empresa ir=C3=A1 analisar os curr=C3=ADculos recebidos e, caso o s=
+eu curr=C3=ADculo atenda os requisitos necess=C3=A1rios, ela entrar=C3=A1 e=
+m contato. Por isso, =C3=A9 importante que os seus dados estejam devidament=
+e atualizados caso eles precisem falar com voc=C3=AA.</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, Arial;font-size:13px;line-height:1=
+.5;text-align:left;color:#000000;"
+      >Acesse o seu painel para ter informa=C3=A7=C3=B5es da vaga e acompan=
+har o processo seletivo.</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"center" style=3D"font-size:0px;padding:10px 25p=
+x;word-break:break-word;"
+                >
+                 =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:separate;width:275px;line-height:100%;"
+      >
+        <tbody>
+          <tr>
+            <td
+               align=3D"center" bgcolor=3D"#3E3EDF" role=3D"presentation" s=
+tyle=3D"border:none;border-radius:3px;cursor:auto;height:24px;mso-padding-a=
+lt:10px 25px;background:#3E3EDF;" valign=3D"middle"
+            >
+              <a
+                 href=3D"https://f8svstlm.r.us-east-1.awstrack.me/L0/https:=
+%2F%2Fwww.empregare.com%2Fcandidato%2Fpainel/1/0100019ab2728944-5cb63ba0-e7=
+b2-4f27-8cad-f70fbb548f12-000000/sgA0qfRJc6xCMs50AU6QF5nLCUY=3D453" style=
+=3D"display:inline-block;width:225px;background:#3E3EDF;color:#ffffff;font-=
+family:Helvetica, Arial;font-size:13px;font-weight:normal;line-height:1.5;m=
+argin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padd=
+ing-alt:0px;border-radius:3px;" target=3D"_blank"
+              >
+                Acessar meu painel do candidato
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" st=
+yle=3D"width:600px;" width=3D"600" bgcolor=3D"#F1F0ED" ><tr><td style=3D"li=
+ne-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#F1F0ED;background-color:#F1F0ED;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#F1F0ED;background-color:#F1F0E=
+D;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:20px 0;text-a=
+lign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:600px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, Arial;font-size:13px;line-height:1=
+.5;text-align:left;color:#000000;"
+      >Esta mensagem foi enviada pelo software de recrutamento e sele=C3=A7=
+=C3=A3o EMPREGARE de forma autom=C3=A1tica. Por favor, n=C3=A3o responda es=
+te e-mail. Para entrar em contato conosco, utilize nossa
+                    <a href=3D"https://f8svstlm.r.us-east-1.awstrack.me/L0/=
+https:%2F%2Fwww.empregare.com%2Fpt-br%2Fsuporte%2Fnovo/1/0100019ab2728944-5=
+cb63ba0-e7b2-4f27-8cad-f70fbb548f12-000000/Q2C36JklRhjLkCgqXOJVpAa_Kho=3D45=
+3" style=3D"color: #3E3EDF " target=3D"_blank">central de atendimento</a>.<=
+/div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+word-break:break-word;"
+                >
+                 =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px;"
+      >
+        <tbody>
+          <tr>
+            <td  style=3D"width:100px;">
+             =20
+      <img
+         alt=3D"Logo Empregare" src=3D"https://www.empregare.com/assetsV2/c=
+ommon/images/global/logo.png" style=3D"border:0;display:block;outline:none;=
+text-decoration:none;height:auto;width:100%;font-size:13px;" width=3D"100" =
+height=3D"auto"
+      />
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:10px 25px;=
+word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, Arial;font-size:13px;line-height:1=
+.5;text-align:left;color:#000000;"
+      >=C2=A9 Empregare 2025 - Simplificamos, otimizamos e inovamos os proc=
+essos seletivos</div>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+   =20
+   =20
+      </div>
+   =20
+  <img alt=3D"" src=3D"https://f8svstlm.r.us-east-1.awstrack.me/I0/0100019a=
+b2728944-5cb63ba0-e7b2-4f27-8cad-f70fbb548f12-000000/snNPIMt38Trkhc3MVk9lBq=
+z8p14=3D453" style=3D"display: none; width: 1px; height: 1px;">
+</body>
+</html>
+ =20
